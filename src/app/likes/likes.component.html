@@ -1,0 +1,11 @@
+<span
+  style="font-size: 3em;" 
+  [style.color]="isActive ? 'deeppink' : '#ccc'" 
+  (mouseover)="onMouseOver()" 
+  (mouseout)="onMouseOut()"
+  (click)="onClick()"
+  [class.cursor]="isMouseOver"
+  >
+  <i class="fas fa-heart"></i>
+</span>
+{{ likesCount }}
