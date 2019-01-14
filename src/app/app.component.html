@@ -1,1 +1,4 @@
 <star></star>
+
+<input type="text" [(ngModel)]="movieName">
+<div>{{ movieName | movietitlecase:["of", "the"] }}</div>
