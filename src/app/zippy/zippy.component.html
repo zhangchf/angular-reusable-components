@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">
+    <div class="title">
+      {{ title }}
+    </div>
+    <span class="arrow" (click)="onExpandCollapse()">
+      <i 
+        class="fas" 
+        [ngClass]="{
+          'fa-angle-up': !isExpanded,
+          'fa-angle-down': isExpanded
+        }"
+      ></i>
+      </span>
+  </div>
+  <div class="content" *ngIf="isExpanded">
+    <ng-content></ng-content>
+  </div>
+</div>
