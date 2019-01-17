@@ -8,6 +8,7 @@ import { MovieTitleCasePipe } from './movie-titlecase.pipe';
 import { LikesComponent } from './likes/likes.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { ZippyComponent } from './zippy/zippy.component';
+import { FormCreateCourseComponent } from './form-create-course/form-create-course.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ZippyComponent } from './zippy/zippy.component';
     MovieTitleCasePipe,
     LikesComponent,
     TweetComponent,
-    ZippyComponent
+    ZippyComponent,
+    FormCreateCourseComponent
   ],
   imports: [
     BrowserModule,
