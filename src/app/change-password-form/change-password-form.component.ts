@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 import { PasswordValidators } from '../validators/password.validators';
+import { fbind } from 'q';
 
 @Component({
   selector: 'change-password-form',
@@ -20,8 +21,24 @@ export class ChangePasswordFormComponent {
     ]),
     confirmPassword: new FormControl('Input your new password again', [
       Validators.required
-    ])
+    ]),
+    contact: new FormGroup({
+      email: new FormControl(),
+      phone: new FormControl()
+    }),
+    topics: new FormArray([])
   });
+
+  constructor(fb: FormBuilder){
+    this.form = fb.group({
+      oldPassword: ['', [
+        Validators.required,
+        Validators.minLength(3)
+      ]],
+      newPassword: ['', Validators.required], // or use fb.control()
+      confirmPasword: []
+    })
+  }
 
   get oldPassword() {
     return this.form.get('oldPassword');
