@@ -36,7 +36,7 @@ export class ChangePasswordFormComponent {
         Validators.minLength(3)
       ]],
       newPassword: ['', Validators.required], // or use fb.control()
-      confirmPasword: []
+      confirmPassword: []
     })
   }
 

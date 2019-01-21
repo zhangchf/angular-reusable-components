@@ -1,6 +1,8 @@
+import { AppErrorHandler } from './services/AppErrorHandler';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { StarComponent } from './star/star.component';
@@ -10,6 +12,7 @@ import { TweetComponent } from './tweet/tweet.component';
 import { ZippyComponent } from './zippy/zippy.component';
 import { FormCreateCourseComponent } from './form-create-course/form-create-course.component';
 import { ChangePasswordFormComponent } from './change-password-form/change-password-form.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,18 @@ import { ChangePasswordFormComponent } from './change-password-form/change-passw
     TweetComponent,
     ZippyComponent,
     FormCreateCourseComponent,
-    ChangePasswordFormComponent
+    ChangePasswordFormComponent,
+    GithubFollowersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: AppErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
